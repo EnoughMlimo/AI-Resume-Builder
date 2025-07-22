@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <h2>Resumes</h2>
+            <button id="new-resume">+ New Resume</button>
+            <ul id="resume-history"></ul>
+            <div class="sidebar-actions">
+                <button id="export-all-pdf">Export All (PDF)</button>
+                <button id="export-all-docx">Export All (DOCX)</button>
+                <button id="export-all-txt">Export All (TXT)</button>
+                <input type="file" id="import-file-txt" style="display:none" accept="text/plain">
+                <button id="import-all-txt">Import (TXT)</button>
+            </div>
+        </aside>
+        <div class="container">
+            <header>
+                <h1>AI Resume Builder</h1>
+                <p>Create a professional, ATS-friendly resume in minutes.</p>
+            </header>
+            <div class="main-layout">
+                <main>
+                    <div class="resume-form">
+                        <h2>Paste Your Resume Information</h2>
+                        <textarea id="raw-resume-input" placeholder="Paste your entire resume, or just list your skills, experience, and education details here. The AI will structure it for you."></textarea>
+                        <button type="button" id="generate-from-text">Generate Resume</button>
+                        <button type="button" id="get-suggestions">Get Suggestions</button>
+                        <div id="suggestion-box" style="display:none; margin-top:15px; background:#f9f9f9; border:1px solid #ddd; border-radius:4px; padding:12px;"></div>
+                    </div>
+                    <div class="resume-preview">
+                        <div class="section-tabs">
+                            <button class="section-tab" data-section="full" id="tab-full">Full Resume</button>
+                            <button class="section-tab" data-section="summary" id="tab-summary">Summary</button>
+                            <button class="section-tab" data-section="experience" id="tab-experience">Experience</button>
+                            <button class="section-tab" data-section="education" id="tab-education">Education</button>
+                            <button class="section-tab" data-section="skills" id="tab-skills">Skills</button>
+                        </div>
+                        <div id="preview-content" class="template1">
+                            <!-- Resume preview will be rendered here -->
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <footer>
+                <button id="save-data">Save Data</button>
+                <button id="export-pdf">Export as PDF</button>
+                <button id="export-docx">Export as DOCX</button>
+                <button id="export-html">Export as HTML</button>
+                <div class="template-switcher">
+                    <label for="template-select">Choose a template:</label>
+                    <select id="template-select">
+                        <option value="template1">Modern</option>
+                        <option value="template2">Classic</option>
+                        <option value="template3">Creative</option>
+                    </select>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@7.1.0/build/index.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
